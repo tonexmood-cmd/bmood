@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>bmood</title>
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #F2EFE9;
+  color: #2A1F18;
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page {
+  width: 100%;
+  max-width: 460px;
+  padding: 0 0 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.top-nav {
+  width: 100%;
+  padding: 24px 28px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-logo {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.32em;
+  color: #2A1F18;
+}
+
+.moodboard {
+  width: 100%;
+  padding: 32px 24px 0;
+}
+
+.collage {
+  position: relative;
+  width: 100%;
+  height: 500px;
+}
+
+.photo-block {
+  position: absolute;
+  overflow: hidden;
+  background: #D8D0C4;
+}
+
+.photo-block img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.p1 { left: 8%;  top: 0;    width: 42%; height: 36%; }
+.p2 { left: 38%; top: 4%;   width: 54%; height: 30%; }
+.p3 { left: 4%;  top: 30%;  width: 50%; height: 38%; }
+.p4 { left: 48%; top: 28%;  width: 44%; height: 30%; }
+.p5 { left: 32%; top: 56%;  width: 36%; height: 28%; }
+
+.handwriting {
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: 13px;
+  line-height: 1.75;
+  color: rgba(42,31,24,0.55);
+}
+
+.hw-left  { position: absolute; left: 0; top: 36%; width: 36%; }
+.hw-right { position: absolute; right: 0; bottom: 2%; width: 48%; text-align: right; }
+
+.swatch {
+  position: absolute;
+  right: 4%; top: 56%;
+  width: 11%; height: 8%;
+  background: #6B3C28;
+}
+
+.slogan-block {
+  width: 100%;
+  padding: 40px 28px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.slogan-tag {
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  color: rgba(42,31,24,0.4);
+  text-transform: uppercase;
+}
+
+.slogan-main {
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: 22px;
+  color: #2A1F18;
+  line-height: 1.55;
+}
+
+.slogan-desc {
+  font-size: 13px;
+  font-weight: 300;
+  color: rgba(42,31,24,0.55);
+  line-height: 1.85;
+  margin-top: 4px;
+}
+
+.links {
+  width: 100%;
+  padding: 32px 28px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.link-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 14px 18px;
+  background: rgba(42,31,24,0.06);
+  border: 1px solid rgba(42,31,24,0.12);
+  text-decoration: none;
+  color: #2A1F18;
+  transition: background 0.2s;
+}
+
+.link-btn:hover { background: rgba(42,31,24,0.1); }
+.btn-inner { display: flex; align-items: center; gap: 12px; }
+
+.btn-icon {
+  width: 30px; height: 30px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.btn-icon.insta { background: linear-gradient(135deg, #F9CE54, #EE2A7B, #6228D7); }
+.btn-icon.naver { background: #03C75A; color: white; font-weight: 700; font-size: 12px; }
+
+.btn-label { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; }
+.btn-arrow { font-size: 12px; color: rgba(42,31,24,0.35); }
+
+.rule {
+  width: calc(100% - 56px);
+  margin: 36px 28px 0;
+  height: 1px;
+  background: rgba(42,31,24,0.1);
+}
+
+.collection { width: 100%; padding: 28px 28px 0; }
+
+.col-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 18px;
+}
+
+.col-title { font-size: 10px; letter-spacing: 0.22em; color: rgba(42,31,24,0.5); text-transform: uppercase; }
+.col-num { font-family: 'IM Fell English', serif; font-style: italic; font-size: 12px; color: rgba(42,31,24,0.35); }
+
+.product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.product-card { display: flex; flex-direction: column; gap: 10px; }
+
+.product-img-wrap {
+  width: 100%;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  background: #D8D0C4;
+}
+
+.product-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.product-img-wrap:hover img { transform: scale(1.03); }
+
+.p-name { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #2A1F18; }
+.p-sub  { font-family: 'IM Fell English', serif; font-style: italic; font-size: 12px; color: rgba(42,31,24,0.5); }
+
+.footer {
+  width: 100%;
+  padding: 52px 28px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.footer-brand { font-size: 9px; letter-spacing: 0.28em; color: rgba(42,31,24,0.3); text-transform: uppercase; }
+.footer-slogan { font-family: 'IM Fell English', serif; font-style: italic; font-size: 11px; color: rgba(42,31,24,0.35); text-align: right; line-height: 1.7; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <nav class="top-nav">
+    <span class="nav-logo">bmood</span>
+  </nav>
+
+  <div class="moodboard">
+    <div class="collage">
+      <div class="photo-block p1"><img src="c.png" alt=""></div>
+      <div class="photo-block p2"><img src="d.png" alt=""></div>
+      <div class="handwriting hw-left">a place of<br>relaxation,<br>rest and<br>tranquility.</div>
+      <div class="photo-block p3"><img src="e.png" alt=""></div>
+      <div class="photo-block p4"><img src="c.png" alt=""></div>
+      <div class="photo-block p5"><img src="d.png" alt=""></div>
+      <div class="swatch"></div>
+      <div class="handwriting hw-right">To thine own self be true,<br>and it must follow.</div>
+    </div>
+  </div>
+
+  <div class="slogan-block">
+    <span class="slogan-tag">bmood / accessory</span>
+    <p class="slogan-main">"a place of relaxation,<br>rest and tranquility."</p>
+    <p class="slogan-desc">평온함과 휴식의 장소를 모티브로<br>비무드만의 감성 오브제를 만듭니다.</p>
+  </div>
+
+  <div class="links">
+    <a class="link-btn" href="https://instagram.com" target="_blank" rel="noopener">
+      <div class="btn-inner">
+        <div class="btn-icon insta">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="white" stroke="none"/>
+          </svg>
+        </div>
+        <span class="btn-label">Instagram</span>
+      </div>
+      <span class="btn-arrow">→</span>
+    </a>
+    <a class="link-btn" href="https://smartstore.naver.com" target="_blank" rel="noopener">
+      <div class="btn-inner">
+        <div class="btn-icon naver">N</div>
+        <span class="btn-label">Naver Smartstore</span>
+      </div>
+      <span class="btn-arrow">→</span>
+    </a>
+  </div>
+
+  <div class="rule"></div>
+
+  <div class="collection">
+    <div class="col-header">
+      <span class="col-title">Collection</span>
+      <span class="col-num">2 items</span>
+    </div>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <img src="a.png" alt="Beads Keyring">
+        </div>
+        <div>
+          <p class="p-name">Beads Keyring</p>
+          <p class="p-sub">천연석 · 실버</p>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <img src="b.png" alt="Flower Keyring">
+        </div>
+        <div>
+          <p class="p-name">Flower Keyring</p>
+          <p class="p-sub">글라스 · 골드</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span class="footer-brand">bmood © 2025</span>
+    <span class="footer-slogan">relaxation,<br>rest & tranquility.</span>
+  </div>
+
+</div>
+</body>
+</html>
