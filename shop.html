@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>제품 — bmood</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav-left">
+    <a href="index.html">메인</a>
+    <a href="about.html">소개</a>
+    <a href="shop.html" class="active">제품</a>
+  </nav>
+  <a class="logo" href="index.html">bmood</a>
+  <nav class="nav-right">
+    <a href="location.html">오시는길</a>
+    <a href="contact.html">문의</a>
+  </nav>
+  <button class="nav-menu-btn" aria-label="메뉴 열기"><span></span><span></span><span></span></button>
+</header>
+<div class="mobile-nav">
+  <a href="index.html">메인</a>
+  <a href="about.html">소개</a>
+  <a href="shop.html" class="active">제품</a>
+  <a href="location.html">오시는길</a>
+  <a href="contact.html">문의</a>
+</div>
+
+<div class="section-head">
+  <span class="eyebrow">Accessory</span>
+  <span class="meta">2 items</span>
+</div>
+
+<div class="filter-bar">
+  <div class="filters">
+    <button class="active" data-filter="all">All</button>
+    <button data-filter="keyring">Keyring</button>
+  </div>
+  <span class="sort">구매는 네이버 스마트스토어에서</span>
+</div>
+
+<div class="product-grid cols-2">
+  <a class="product-card" href="https://smartstore.naver.com" target="_blank" rel="noopener" data-category="keyring">
+    <div class="thumb"><img src="a.png" alt="Beads Keyring"></div>
+    <div class="meta-row">
+      <span>Beads Keyring</span>
+      <span class="price">₩28,000</span>
+    </div>
+  </a>
+  <a class="product-card" href="https://smartstore.naver.com" target="_blank" rel="noopener" data-category="keyring">
+    <div class="thumb"><img src="b.png" alt="Flower Keyring"></div>
+    <div class="meta-row">
+      <span>Flower Keyring</span>
+      <span class="price">₩32,000</span>
+    </div>
+  </a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand-mark">bmood</div>
+    <div class="footer-col">
+      <a href="index.html">메인</a>
+      <a href="about.html">소개</a>
+      <a href="shop.html">제품</a>
+    </div>
+    <div class="footer-col">
+      <a href="location.html">오시는길</a>
+      <a href="contact.html">문의</a>
+      <a href="https://www.instagram.com/bmood_/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+    <div class="footer-col">
+      <a href="https://smartstore.naver.com" target="_blank" rel="noopener">Naver Smartstore</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-newsletter-label">Newsletter</span>
+      <div class="newsletter-input-row">
+        <input type="email" placeholder="Email address">
+        <button type="button">Subscribe</button>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">bmood © 2025. All rights reserved.</div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
